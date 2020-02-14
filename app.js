@@ -9,9 +9,17 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var catalog = require('./routes/catalog');  //Import routes for "catalog" area of site
 
+
+// Set up mongoose connection
+//var dev_db_url = 'mongodb+srv://cooluser:coolpassword@cluster0-mbdj7.mongodb.net/local_library?retryWrites=true'
+var dev_db_url = 'mongodb+srv://wanja:wanja@cluster0-t8c4x.mongodb.net/test?retryWrites=true&w=majority'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+
 var app = express();
 
+
 var helmet = require('helmet');
+
 // Create the Express application object
 var app = express();
 
