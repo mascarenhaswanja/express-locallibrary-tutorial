@@ -15,6 +15,12 @@ var catalog = require('./routes/catalog');  //Import routes for "catalog" area o
 var dev_db_url = 'mongodb+srv://wanja:wanja@cluster0-t8c4x.mongodb.net/test?retryWrites=true&w=majority'
 var mongoDB = process.env.MONGODB_URI || dev_db_url;
 
+var mongoose = require('mongoose');
+mongoose.connect (mongoDB, {userNewUrlParser: true});
+
+var db = mongoose.connection;
+db.on ('error', console.error.bind(console, 'MongoDb connection error'));
+
 var app = express();
 
 
@@ -27,7 +33,7 @@ app.use(helmet());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use(favicon());
 app.use(logger('dev'));

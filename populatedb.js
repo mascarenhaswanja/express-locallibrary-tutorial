@@ -18,7 +18,7 @@ var BookInstance = require('./models/bookinstance')
 
 
 var mongoose = require('mongoose');
-var mongoDB = userArgs[0];
+var mongoDB = 'mongodb+srv://wanja:wanja@cluster0-t8c4x.mongodb.net/test?retryWrites=true&w=majority';
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
